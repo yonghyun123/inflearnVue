@@ -2,7 +2,8 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput></TodoInput>
-    <TodoList></TodoList>
+    <!-- <TodoList v-bind:내려보낼 props이름="props데이터 이름"></TodoList> -->
+    <TodoList v-bind:propsdata="todoItems"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -14,12 +15,30 @@ import TodoList  from './components/TodoList.vue'
 import TodoFooter  from './components/TodoFooter.vue'
 
 export default {
+  data:function(){
+    return {
+      todoItems : []
+    }
+  },
+  created:function(){
+    // console.log('created');
+    if(localStorage.length > 0){
+      for(var i = 0; i < localStorage.length; i++){
+        if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
+          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+          // this.todoItems.push(localStorage.key(i));
+        }
+        // console.log(localStorage.key(i));
+      }
+    }
+  },
   components:{
     'TodoHeader': TodoHeader,
     'TodoList': TodoList,
     'TodoInput':TodoInput,
     'TodoFooter': TodoFooter
   }
+  
 }
 </script>
 
