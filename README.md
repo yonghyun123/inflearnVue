@@ -120,7 +120,7 @@ function willBeOverridden(){
 
 
 
-## # change let, const
+##  change let, const
 
 ```javascript
 let sum = 0;
@@ -129,5 +129,31 @@ for(let i =1; i <=5; i++){
 }
 console.log(sum);//15 
 console.log(i);//undefined
+```
+
+
+
+## Arrow function - 화살표 함수
+
+
+
+```javascript
+var sum = function(a,b){
+  return a+b;
+};
+
+//es6
+var sum = (a,b) => {
+  return a+b;
+}
+sum(10,20);
+
+var arr = ["a","b","c"];
+arr.forEach(function(value){
+  console.log(value);
+})
+//es6
+
+arr.forEach(value => console.log(value));
 ```
 
