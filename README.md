@@ -79,3 +79,55 @@ methods:{
 
 
 
+# 3. ES6
+
+
+
+const vs let
+
+const : 한번 선언한 값에 대해서 변경할 수 없음
+
+let: 한번 선언한 값에 대해서 선언할 수 없음
+
+
+
+Es5 특징 - 변수의 scope
+
+```javascript
+var sum = 0;
+for(var i =1; i <= 5; i++){
+  sum += i;
+}
+console.log(sum);//15
+console.log(i);//6
+```
+
+
+
+Hoisting
+
+- hoisting이란 선언한 함수와 변수를 해석기가 가장 상단에 있는것처럼 해석한다
+
+```javascript
+function willBeOverridden(){
+	return 10;
+}
+willBeOverridden(); //return 5 but funciton expression is not applied
+function willBeOverridden(){
+	return 5;
+}
+```
+
+
+
+## # change let, const
+
+```javascript
+let sum = 0;
+for(let i =1; i <=5; i++){
+	sum = sum+i;
+}
+console.log(sum);//15 
+console.log(i);//undefined
+```
+
