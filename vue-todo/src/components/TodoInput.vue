@@ -27,7 +27,7 @@ export default {
     }
   },
   methods:{
-    addTodo: function(){
+    addTodo(){
       if(this.newTodoItem !== ''){
         // this.$emit('이벤트이름',this.newTodoItem);
         this.$emit('addTodoItem',this.newTodoItem);
@@ -36,12 +36,12 @@ export default {
         this.showModal = !this.showModal;
       }
     },
-    clearInput: function(){
+    clearInput(){
       this.newTodoItem = '';
     }
   },
   components:{
-    Modal:Modal,
+    Modal,
   }
 }
 </script>
@@ -78,12 +78,5 @@ input:focus{
 .closeModalBtn{
   color: #42b983;
 }
-/* 리스트아이템 트랜지션 효과 */
-.list-enter-active, .list-leave-active {
-  transition: all 1s;
-}
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateY(30px);
-}
+
 </style>

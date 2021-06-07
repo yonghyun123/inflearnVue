@@ -157,3 +157,20 @@ arr.forEach(function(value){
 arr.forEach(value => console.log(value));
 ```
 
+
+
+## Enhanced Object Literals - 향상된 객체 리터럴
+
+```javascript
+var dictionary = {
+  words: 100,
+  lookup: function(){
+    console.log("find words");
+  }
+  //es6
+  lookup(){
+    console.log("find words");
+  }
+}
+```
+
