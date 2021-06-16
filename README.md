@@ -179,3 +179,20 @@ var dictionary = {
 - 자바스크립트 모듈 로더 라이브러리(AMD, common.js)기능을 js자체에서 지원
 - 호출되기 전까지는 코드 실행과 동작을 하지 않는 특징이 있음
 
+
+
+# Vuex
+
+- 복잡한 애플리케이션의 컴포넌트를 효율적으로 관리하는 라이브러리
+- Flux 패턴
+- State, getters, mutations, actions 학습
+- Vuex를 쉽게 코딩할 수 있는 방법인 helper 기능 
+
+
+
+### Flux란
+
+MVC패턴의 복잡한 데이터 흐름 문제를 해결하는 개발 패턴
+
+Action -> Dispatcher -> Model -> View
+
