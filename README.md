@@ -196,3 +196,27 @@ MVC패턴의 복잡한 데이터 흐름 문제를 해결하는 개발 패턴
 
 Action -> Dispatcher -> Model -> View
 
+
+
+# mutation
+
+- state 값을 변경할 수 있는 유일한 방법이자 메서드
+- 뮤테이션은 commit()으로 동작시킨다.
+
+
+
+```javascript
+state: { num: 10},
+mutations:{
+  printNumber(state){
+    return state.num
+  },
+  sumNumbers(state, anotherNum){
+    return state.num + anotherNum;
+  }
+}
+
+this.$store.commit('printNumbers');
+this.$store.commit('sumNumbers',20);
+```
+
