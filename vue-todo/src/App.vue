@@ -2,12 +2,13 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <!-- <TodoInput v-on:하위컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트의 메서드 이름"></TodoInput> -->
-    <TodoInput v-on:addTodoItem="addOneItem"></TodoInput>
+    <!-- <TodoInput v-on:addTodoItem="addOneItem"></TodoInput> Vuex를 통한 템플릿 바인딩 불필요-->
     <!-- <TodoList v-bind:내려보낼 props이름="props데이터 이름"></TodoList> -->
+    <TodoInput></TodoInput>
     <TodoList v-bind:propsdata="todoItems" 
               v-on:removeItem="removeOneItem" 
               v-on:toggleItem="toggleOneItem"></TodoList>
-    <TodoFooter v-on:clearItem="clearAllItem"></TodoFooter>
+    <TodoFooter></TodoFooter>
   </div>
 </template>
 
@@ -24,14 +25,7 @@ export default {
     }
   },
   methods:{
-    addOneItem(todoItem){
-      const obj = {
-        completed: false,
-        item: todoItem
-      }
-      localStorage.setItem(todoItem, JSON.stringify(obj));
-      this.todoItems.push(obj);
-    },
+
     removeOneItem(todoItem,index){
       localStorage.removeItem(todoItem.item);
       this.todoItems.splice(index,1);
@@ -42,23 +36,12 @@ export default {
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
     },
-    clearAllItem(){
-      localStorage.clear();
-      this.todoItems = [];
-    }
+    // clearAllItem(){
+    //   localStorage.clear();
+    //   this.todoItems = [];
+    // }
   },
-  created(){
-    // console.log('created');
-    if(localStorage.length > 0){
-      for(let i = 0; i < localStorage.length; i++){
-        if(localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-          this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-          // this.todoItems.push(localStorage.key(i));
-        }
-        // console.log(localStorage.key(i));
-      }
-    }
-  },
+
   components:{
     TodoHeader,
     TodoList,
