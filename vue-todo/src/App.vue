@@ -4,10 +4,11 @@
     <!-- <TodoInput v-on:하위컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트의 메서드 이름"></TodoInput> -->
     <!-- <TodoInput v-on:addTodoItem="addOneItem"></TodoInput> Vuex를 통한 템플릿 바인딩 불필요-->
     <!-- <TodoList v-bind:내려보낼 props이름="props데이터 이름"></TodoList> -->
+    <!-- <TodoList v-bind:propsdata="todoItems" 
+          v-on:removeItem="removeOneItem" 
+          v-on:toggleItem="toggleOneItem"></TodoList> -->
     <TodoInput></TodoInput>
-    <TodoList v-bind:propsdata="todoItems" 
-              v-on:removeItem="removeOneItem" 
-              v-on:toggleItem="toggleOneItem"></TodoList>
+    <TodoList></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -19,28 +20,28 @@ import TodoList  from './components/TodoList.vue'
 import TodoFooter  from './components/TodoFooter.vue'
 
 export default {
-  data(){
-    return {
-      todoItems : []
-    }
-  },
-  methods:{
+  // data(){
+  //   return {
+  //     todoItems : []
+  //   }
+  // },
+  // methods:{
 
-    removeOneItem(todoItem,index){
-      localStorage.removeItem(todoItem.item);
-      this.todoItems.splice(index,1);
-    },
-    toggleOneItem(todoItem, index){
-      // todoItem.completed = !todoItem.completed;
-      this.todoItems[index].completed = !this.todoItems[index].completed;
-      localStorage.removeItem(todoItem.item);
-      localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
-    },
+    // removeOneItem(todoItem,index){
+    //   localStorage.removeItem(todoItem.item);
+    //   this.todoItems.splice(index,1);
+    // },
+    // toggleOneItem(todoItem, index){
+    //   // todoItem.completed = !todoItem.completed;
+    //   this.todoItems[index].completed = !this.todoItems[index].completed;
+    //   localStorage.removeItem(todoItem.item);
+    //   localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
+    // },
     // clearAllItem(){
     //   localStorage.clear();
     //   this.todoItems = [];
     // }
-  },
+  // },
 
   components:{
     TodoHeader,
@@ -48,7 +49,6 @@ export default {
     TodoInput,
     TodoFooter
   }
-  
 }
 </script>
 

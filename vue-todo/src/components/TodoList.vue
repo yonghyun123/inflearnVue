@@ -27,11 +27,15 @@ export default {
   props:['propsdata'],
   methods:{
     removeTodo(todoItem, index){
-      this.$emit('removeItem',todoItem,index);
-      console.log(todoItem, index);
+      console.log('index='+index);
+      this.$store.commit('removeOneItem',{todoItem, index}); // 객체리터럴 단축
+      // this.$store.commit('clearAllItem');
+      // this.$emit('removeItem',todoItem,index);
+      
     },
     toggleComplete(todoItem, index){
-      this.$emit('toggleItem',todoItem,index);
+      this.$store.commit('toggleOneItem', {todoItem, index}); // 객체리터럴 단축
+      // this.$emit('toggleItem',todoItem,index);
     }
   },
 
