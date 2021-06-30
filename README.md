@@ -220,3 +220,58 @@ this.$store.commit('printNumbers');
 this.$store.commit('sumNumbers',20);
 ```
 
+
+
+# Actions
+
+- 비동기 처리 로직을 선언하는 메서드, 비동기 로직을 담당하는 mutations
+
+
+
+```javascript
+state:{
+  num: 10
+},
+
+mutations:{
+  doubleNumber(state){
+    state.num *2;
+  }
+},
+  
+actions:{
+  delayDoubleNumber(context){
+    context.commit('doubleNumber');
+  }
+}
+//App.vue
+this.$store.dispatch('delayDoubleNumber');
+```
+
+
+
+```javascript
+state:{
+  num: 10
+},
+
+mutations:{
+  addCounter(state){
+    state.counter++;
+  }
+},
+  
+actions:{
+  delayAddCounter(context){
+    setTimeout(() => context.commit('addCounter'),2000);
+  } 
+}
+//App.vue
+methods:{
+  incrementCounter(){
+    this.$store.dispatch('delayAddCounter')
+  }
+}
+
+```
+
